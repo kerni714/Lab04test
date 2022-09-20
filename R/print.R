@@ -1,6 +1,7 @@
 #' Print
 #'
 #' @param linreg_object object of type linreg
+#' @param ... arguments to be passed to methods
 #'
 #' @return prints output
 #' @export
@@ -9,7 +10,7 @@
 #' data(iris)
 #' s<-linreg(formula=Petal.Length~Species, data=iris)
 #' print(s)
-print.linreg <-function (linreg_object){
+print.linreg <-function (linreg_object, ...){
 
   cat("", sep="\n\n")
 

@@ -1,6 +1,7 @@
 #' Coef
 #'
 #' @param linreg_object e
+#' @param ... arguments to be passed to methods
 #'
 #' @return coeffients
 #' @export
@@ -9,6 +10,6 @@
 #' data(iris)
 #' s<-linreg(formula=Petal.Length~Species, data=iris)
 #' coef(s)
-coef.linreg <- function(linreg_object) {
+coef.linreg <- function(linreg_object, ...) {
   return(linreg_object$coefficients)
 }

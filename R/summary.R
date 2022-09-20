@@ -1,6 +1,7 @@
 #' Summary
 #'
 #' @param linreg_object object of type linreg
+#' @param ... arguments to be passed to methods
 #'
 #' @return prints output
 #' @export
@@ -8,7 +9,7 @@
 #' @examples
 #' s<-linreg(formula=Petal.Length~Sepal.Width+Sepal.Length, data=iris)
 #' summary(s)
-summary.linreg <- function (linreg_object) {
+summary.linreg <- function (linreg_object, ...) {
 
   df <- linreg_object$df
   res_std_err <- round(sqrt(linreg_object$residual_variance),4)

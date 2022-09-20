@@ -1,6 +1,7 @@
 #' Residuals
 #'
 #' @param linreg_object object of type linreg
+#' @param ... arguments to be passed to methods
 #'
 #' @return residuals
 #' @export
@@ -9,6 +10,6 @@
 #' data(iris)
 #' s<-linreg(formula=Petal.Length~Species, data=iris)
 #' residuals(s)
-residuals.linreg <- function(linreg_object) {
+residuals.linreg <- function(linreg_object, ...) {
   return(linreg_object$residuals)
 }
