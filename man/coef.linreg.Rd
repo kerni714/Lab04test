@@ -4,10 +4,12 @@
 \alias{coef.linreg}
 \title{Coef}
 \usage{
-\method{coef}{linreg}(linreg_object)
+\method{coef}{linreg}(object, ...)
 }
 \arguments{
-\item{linreg_object}{e}
+\item{object}{e}
+
+\item{...}{arguments to be passed to methods}
 }
 \value{
 coeffients

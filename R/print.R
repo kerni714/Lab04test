@@ -1,6 +1,6 @@
 #' Print
 #'
-#' @param linreg_object object of type linreg
+#' @param x object of type linreg
 #' @param ... arguments to be passed to methods
 #'
 #' @return prints output
@@ -10,7 +10,7 @@
 #' data(iris)
 #' s<-linreg(formula=Petal.Length~Species, data=iris)
 #' print(s)
-print.linreg <-function (linreg_object, ...){
+print.linreg <-function (x, ...){
 
   cat("", sep="\n\n")
 
@@ -18,13 +18,13 @@ print.linreg <-function (linreg_object, ...){
 
   cat("", sep="\n\n")
 
-  print(linreg_object$call)
+  print(x$call)
 
   cat("", sep="\n\n")
 
   cat("Coefficients:")
   cat("", sep="\n\n")
-  print(linreg_object$coefficients)
+  print(x$coefficients)
   #cat(linreg_object$Coefficients)
 
 }

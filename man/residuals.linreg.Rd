@@ -4,10 +4,12 @@
 \alias{residuals.linreg}
 \title{Residuals}
 \usage{
-\method{residuals}{linreg}(linreg_object)
+\method{residuals}{linreg}(object, ...)
 }
 \arguments{
-\item{linreg_object}{object of type linreg}
+\item{object}{object of type linreg}
+
+\item{...}{arguments to be passed to methods}
 }
 \value{
 residuals

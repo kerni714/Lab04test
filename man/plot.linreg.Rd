@@ -4,10 +4,12 @@
 \alias{plot.linreg}
 \title{Plot}
 \usage{
-\method{plot}{linreg}(obj)
+\method{plot}{linreg}(x, ...)
 }
 \arguments{
-\item{obj}{linreg object}
+\item{x}{linreg object}
+
+\item{...}{arguments to be passed to methods}
 }
 \value{
 ggplot object

@@ -4,10 +4,10 @@
 \alias{pred}
 \title{pred}
 \usage{
-pred(linreg_object)
+pred(object)
 }
 \arguments{
-\item{linreg_object}{\itemize{
+\item{object}{\itemize{
 \item object of type linreg
 }}
 }

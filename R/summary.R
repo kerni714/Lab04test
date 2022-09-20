@@ -1,22 +1,24 @@
 #' Summary
 #'
-#' @param linreg_object object of type linreg
+#' @param object object of type linreg
 #' @param ... arguments to be passed to methods
 #'
 #' @return prints output
 #' @export
 #'
+#' @method summary linreg
+#'
 #' @examples
 #' s<-linreg(formula=Petal.Length~Sepal.Width+Sepal.Length, data=iris)
 #' summary(s)
-summary.linreg <- function (linreg_object, ...) {
+summary.linreg <- function (object, ...) {
 
-  df <- linreg_object$df
-  res_std_err <- round(sqrt(linreg_object$residual_variance),4)
-  estimates <- linreg_object$coefficients
-  stderr <- round(sqrt(linreg_object$coefficients_variance),5)
-  tvalues <- round(linreg_object$coefficients_tvalues,2)
-  pvalues <- linreg_object$coefficients_pvalues
+  df <- object$df
+  res_std_err <- round(sqrt(object$residual_variance),4)
+  estimates <- object$coefficients
+  stderr <- round(sqrt(object$coefficients_variance),5)
+  tvalues <- round(object$coefficients_tvalues,2)
+  pvalues <- object$coefficients_pvalues
 
   sign_level <- vector(length=length(estimates))
   sign_level[pvalues<0.1] <- "."

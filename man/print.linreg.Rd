@@ -4,10 +4,12 @@
 \alias{print.linreg}
 \title{Print}
 \usage{
-\method{print}{linreg}(linreg_object)
+\method{print}{linreg}(x, ...)
 }
 \arguments{
-\item{linreg_object}{object of type linreg}
+\item{x}{object of type linreg}
+
+\item{...}{arguments to be passed to methods}
 }
 \value{
 prints output
