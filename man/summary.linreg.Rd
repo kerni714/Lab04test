@@ -16,6 +16,6 @@ prints output
 Summary
 }
 \examples{
-s<-linreg(formula=Petal.Length~Species, data=iris)
+s<-linreg(formula=Petal.Length~Sepal.Width+Sepal.Length, data=iris)
 summary(s)
 }

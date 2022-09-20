@@ -6,41 +6,31 @@
 #' @export
 #'
 #' @examples
-#' s<-linreg(formula=Petal.Length~Species, data=iris)
+#' s<-linreg(formula=Petal.Length~Sepal.Width+Sepal.Length, data=iris)
 #' summary(s)
 summary.linreg <- function (linreg_object) {
 
   df <- linreg_object$df
   res_std_err <- round(sqrt(linreg_object$residual_variance),4)
-  coeffs <- as.data.frame(cbind(linreg_object$coefficients,
-                               round(sqrt(linreg_object$coefficients_variance),5),
-                               round(linreg_object$coefficients_tvalues,2),
-                               linreg_object$coefficients_pvalues))
+  estimates <- linreg_object$coefficients
+  stderr <- round(sqrt(linreg_object$coefficients_variance),5)
+  tvalues <- round(linreg_object$coefficients_tvalues,2)
+  pvalues <- linreg_object$coefficients_pvalues
 
-  # c1 <- c("(Intercept)", -2.524762,0.56344, -4.48 )
-  # c2 <- c("Sepal.Width",-1.3386230,0.12236, -10.94 )
-  # c3 <- c("Sepal.Length",1.775593,0.06441,27.57)
-  #
-  # cat(c1)
-  # cat("\n")
-  # cat(c2)
-  # cat("\n")
-  # cat(c3)
-  # cat("\n")
-# coeffs <- as.matrix(cbind(linreg_object$coefficients,
-# round(sqrt(linreg_object$coefficients_variance),5),
-# round(linreg_object$coefficients_tvalues,2),
-# linreg_object$coefficients_pvalues))
+  sign_level <- vector(length=length(estimates))
+  sign_level[pvalues<0.1] <- "."
+  sign_level[pvalues<0.05] <- "*"
+  sign_level[pvalues<0.01] <- "**"
+  sign_level[pvalues<0.001] <- "***"
 
 
-  #names(coeffs) <- c("Estimate", "Std. Error", "t value", "Pr(>|t|)")
-   #names(coeffs) <- NULL
-  coeffs <- as.matrix(coeffs)
-  colnames(coeffs) <- c("Estimate", "Std. Error", "t value", "Pr(>|t|)")
+  coeffs <- as.data.frame(cbind(estimates,stderr,tvalues,pvalues,sign_level))
 
-  #cat("Coefficients:\n")
+  names(coeffs) <- c("Estimate", "Std. Error", "t value", "Pr(>|t|)", " ")
+
+  cat("Coefficients:\n")
   print(coeffs)
-  #cat("\n")
+  cat("\n")
   cat(paste0("Residual standard error: ",res_std_err, " on ", df, " degrees of freedom"))
 
 }
