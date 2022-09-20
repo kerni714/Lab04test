@@ -74,8 +74,8 @@ make_plot <- function(df, title, cpt, xaxis, yaxis, xlab, ylab, cutoff_y_var,
   pred_plot <- df[,xaxis]
   id_plot <- df[,id]
   cutoff_y_var <- df[,cutoff_y_var]
-  ylim_min <- min(0, round(min(resid_plot),2))
-  ylim_max <- round(max(resid_plot),2)
+  ylim_min <- min(0, round(min(resid_plot),2)-0.1)
+  ylim_max <- round(max(resid_plot),2)+0.1
 
   #- Calculate summary statistics
   y_means <- stats::aggregate(resid_plot, list(pred_plot), FUN=mean)

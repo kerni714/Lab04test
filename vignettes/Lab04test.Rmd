@@ -1,8 +1,8 @@
 ---
-title: "linreg_vignette"
+title: "Lab04test"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{linreg_vignette}
+  %\VignetteIndexEntry{Lab04test}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -16,4 +16,15 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(Lab04test)
+
+data(iris)
+linreg_model <- linreg(formula=Sepal.Length ~ Species, data=iris)
 ```
+
+Plot data
+
+```{r}
+
+plot(linreg_model)
+```
+
